@@ -26,7 +26,11 @@
                 </p>
             </div>
             <div class="col-sm-6">
+                {% if user.is_authenticated %}
                 <p class="brownText"><a href="{% url 'nowandthen:add_picture' %}">Post Pictures</a></p>
+                {% else %}
+                <p class="brownText"><a href="{% url 'nowandthen:login' %}">Post Pictures</a></p>
+                {% endif %}
             </div>
         </div>
 </body>
