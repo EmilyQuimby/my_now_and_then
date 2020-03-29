@@ -141,12 +141,13 @@ Now & Then -
      <nav>
          <ul class="navigation">
              {% if user.is_authenticated %}
-                <li>search</li>
+                <li><form action="{% url 'nowandthen:search_results' %}" method="get"><input name="q" type="text" placeholder="Search..."></form></li>
                 <li class="dropdown"><button class="dropbtn">Choose A Decade</button>
                     <div class="dropdown-content">
-                        decades
-                    </div>
-                </li>
+                        <a href="{% url 'nowandthen:1970' %}">1970s</a>
+                        <a href="{% url 'nowandthen:1980' %}">1980s</a>
+                        <a href="{% url 'nowandthen:2010' %}">2010s</a>
+                    </div></li>
                 <li><a href="{% url 'nowandthen:logout' %}">Logout</a></li>
              {% else %}
                 <li><a href="{% url 'nowandthen:register' %}">Sign Up</a></li>

@@ -1,0 +1,31 @@
+{% extends 'nowandthen/base.html' %}
+{% load staticfiles %}
+
+  {% block additional_styles %}
+  <style>
+   body{
+    background-image: url('/static/images/glasgow_cityscape.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  </style>
+  {% endblock %}
+
+{% block title_block %}
+    Homepage
+{% endblock %}
+
+ {% block body_block %}
+ <body>
+    <div class="container text-center">
+        <ul>
+        {% for self in object_list %}
+            <li>
+                {{ self.image }}
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+</body>
+ {% endblock %}

@@ -111,6 +111,35 @@ def photo_feed(request):
 
     return render(request, 'nowandthen/photo_feed.html', context=context_dict)
 
+def photo70(request):
+    picture_list_70 = Picture.objects.filter(era=1970)
+
+    context_dict = {}
+    context_dict['pictures70'] = picture_list_70
+
+    return render(request, 'nowandthen/1970.html', context=context_dict)
+
+
+def photo80(request):
+    picture_list_80 = Picture.objects.filter(era=1980)
+
+    context_dict = {}
+    context_dict['pictures80'] = picture_list_80
+
+    return render(request, 'nowandthen/1980.html', context=context_dict)
+
+
+def photo10(request):
+    picture_list_10 = Picture.objects.filter(era=2010)
+
+    context_dict = {}
+    context_dict['pictures10'] = picture_list_10
+
+    return render(request, 'nowandthen/2010.html', context=context_dict)
+
+def search_results(request):
+    return render(request, 'nowandthen/search_results.html')
+
 
 # Use the login_required() decorator to ensure only those logged in can
 # access the view.
