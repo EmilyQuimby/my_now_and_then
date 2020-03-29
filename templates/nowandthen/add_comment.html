@@ -1,0 +1,16 @@
+{% extends 'nowandthen/base.html' %}
+{% load staticfiles %}
+{% block title_block %}
+Add self
+{% endblock %}
+{% block body_block %}
+<h1>Add a Comment</h1>
+<div>
+<form id="comment_form" method="post" action="{% url 'nowandthen:add_comment' %}" enctype="multipart/form-data" >
+{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" name="submit" value="Add Comment" />
+</form>
+</div>
+{% endblock %}
+

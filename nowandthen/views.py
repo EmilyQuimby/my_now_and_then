@@ -88,8 +88,8 @@ def add_comment(request, image_id):
     if request.method == 'POST':
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
-            # Create Comment object and save to database
-            new_comment = comment_form.save(commit=True)
+            # Create Comment object and don't save to database yet
+            new_comment = comment_form.save(commit=False)
             # Assign the current post to the comment
             new_comment.post = post
             # Save the comment to the database
