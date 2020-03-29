@@ -133,6 +133,18 @@ Now & Then -
 {% block navigation_block %}
      <nav>
          <ul class="navigation">
+             {% if user.is_authenticated %}
+                <li>search</li>
+                <li class="dropdown"><button class="dropbtn">Choose A Decade</button>
+                    <div class="dropdown-content">
+                        decades
+                    </div>
+                </li>
+                <li><a href="{% url 'nowandthen:logout' %}">Logout</a></li>
+             {% else %}
+                <li><a href="{% url 'nowandthen:register' %}">Sign Up</a></li>
+                <li><a href="{% url 'nowandthen:login' %}">Login</a></li>
+             {% endif %}
 
          </ul>
     </nav>

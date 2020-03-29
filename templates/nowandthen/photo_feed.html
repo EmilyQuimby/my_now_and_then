@@ -1,0 +1,17 @@
+{% extends 'nowandthen/base.html' %}
+
+{% block body_block %}
+<br>
+<br>
+<ul>
+{% if pictures %}
+    <ul>
+    {% for p in pictures %}
+        <li><img src="{{ p.image.url }}"></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <li><strong>There are no photographs present.</strong></li>
+{% endif %}
+</ul>
+{% endblock %}
