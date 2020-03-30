@@ -83,7 +83,7 @@ def add_comment(request, image_id):
     new_comment = None
     template_name = 'add_comment.html'
     image = get_object_or_404(Picture, id=image_id)
-    comments = image.comments.filter(active=True)
+    comment = image.comments.filter(active=True)
     new_comment = None
     # Comment posted
     if request.method == 'POST':
@@ -98,7 +98,7 @@ def add_comment(request, image_id):
     else:
         comment_form = CommentForm()
 
-    context = {'image': image,'comments': comments, 'new_comment': new_comment,'comment_form': comment_form}
+    context = {'image': image,'comment': comment, 'new_comment': new_comment,'comment_form': comment_form}
 
     return render(request, template_name, context)
 
