@@ -39,7 +39,7 @@
       <!-- Text -->
                     <p class="card-text collapse" id="collapseContent">{{ p.description }}</p>
       <!-- Button -->
-                    <a class="btn btn-flat red-text p-1 my-1 mr-0 mml-1 collapsed" data-toggle="collapse" href="#collapseContent" aria-expanded="false" aria-controls="collapseContent">Description</a>
+                    <a class="btn btn-flat red-text p-1 my-1 mr-0 mml-1 collapsed" data-toggle="collapse" href="#collapseContent" aria-expanded="false" aria-controls="collapseContent">Click for description</a>
                     <i class="fas fa-share-alt text-muted float-right p-1 my-1" data-toggle="tooltip" data-placement="top" title="Share this post"></i>
                     <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3" data-toggle="tooltip" data-placement="top" title="I like it"></i>
 
@@ -62,10 +62,10 @@
             </div>
             <div class="card-body">
                 {% if new_comment %}
-                <div class="alert alert-success" role="alert">Your comment has been posted.</div>
+                <h2>Your comment has been posted.</h2>
                 {% else %}
                 <h3>Leave a comment</h3>
-                <form id="comment_form" method="post" action="{% url 'nowandthen:add_comment' %}" enctype="multipart/form-data">
+                <form id="comment_form" method="post" action="{% url 'nowandthen:photo_feed' %}" enctype="multipart/form-data">
                     {{ comment_form.as_p }}
                     {% csrf_token %}
                     <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
