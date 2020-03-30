@@ -98,7 +98,7 @@ def add_comment(request, image_id):
     else:
         comment_form = CommentForm()
 
-    context = {'comment_form': comment_form, 'image': image,'comments': comments, 'new_comment': new_comment,'comment_form': comment_form}
+    context = {'image': image,'comments': comments, 'new_comment': new_comment,'comment_form': comment_form}
 
     return render(request, template_name, context)
 

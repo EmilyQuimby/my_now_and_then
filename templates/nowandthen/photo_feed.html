@@ -51,7 +51,7 @@
                 {% for comment in comments %}
                 <div class="comments" style="padding: 10px;">
                     <p class="font-weight-bold">
-                        {{ comment.user }}
+                        <h4>Comment by</h4> {{ comment.user }}
                         <span class=" text-muted font-weight-normal">
                             {{ comment.created_on }}
                         </span>
@@ -65,7 +65,7 @@
                 <h2>Your comment has been posted.</h2>
                 {% else %}
                 <h3>Leave a comment</h3>
-                <form id="comment_form" method="post" action="{% url 'nowandthen:photo_feed' %}" enctype="multipart/form-data">
+                <form action="." method="POST">
                     {{ comment_form.as_p }}
                     {% csrf_token %}
                     <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
