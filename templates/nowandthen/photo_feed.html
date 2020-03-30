@@ -62,7 +62,7 @@
             </div>
             <div class="card-body">
                 {% if new_comment %}
-                <div class="alert alert-success" role="alert">Your comment is awaiting moderation</div>
+                <div class="alert alert-success" role="alert">Your comment has been posted.</div>
                 {% else %}
                 <h3>Leave a comment</h3>
                 <form id="comment_form" method="post" action="{% url 'nowandthen:add_comment' %}" enctype="multipart/form-data">

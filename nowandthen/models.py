@@ -39,7 +39,7 @@ class Comment(models.Model):
     COMMENT_MAX_LENGTH = 1000
     image = models.ForeignKey(Picture, on_delete=models.CASCADE, related_name="comments")
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
-    body = models.TextField(max_length=COMMENT_MAX_LENGTH)
+    body = models.CharField(max_length=COMMENT_MAX_LENGTH)
     created_on = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=False)
 

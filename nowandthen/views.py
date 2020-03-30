@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from pip._vendor.requests import post
 
 from nowandthen.forms import PictureForm, CommentForm, UserProfileForm, UserForm
-from nowandthen.models import Picture
+from nowandthen.models import Picture, Comment
 
 
 def index(request):
@@ -80,6 +80,7 @@ def add_picture(request):
 
 @login_required
 def add_comment(request, image_id):
+    new_comment = None
     template_name = 'add_comment.html'
     image = get_object_or_404(Picture, id=image_id)
     comments = image.comments.filter(active=True)
@@ -97,17 +98,18 @@ def add_comment(request, image_id):
     else:
         comment_form = CommentForm()
 
-    return render(request, template_name, {'image': image,
-                                           'comments': comments,
-                                           'new_comment': new_comment,
-                                           'comment_form': comment_form})
+    context = {'comment_form': comment_form, 'image': image,'comments': comments, 'new_comment': new_comment,'comment_form': comment_form}
+
+    return render(request, template_name, context)
 
 
 def photo_feed(request):
     picture_list = Picture.objects.all().order_by('when_added')
+    comment_form = CommentForm()
 
     context_dict = {}
     context_dict['pictures'] = picture_list
+    context_dict['comment_form'] = comment_form
 
     return render(request, 'nowandthen/photo_feed.html', context=context_dict)
 
