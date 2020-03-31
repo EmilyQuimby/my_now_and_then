@@ -83,7 +83,7 @@ def add_comment(request, image_id):
     new_comment = None
     template_name = 'add_comment.html'
     image = get_object_or_404(Picture, id=image_id)
-    comment = image.comments.filter(active=True)
+    comment = image.comment.filter(active=True)
     new_comment = None
     # Comment posted
     if request.method == 'POST':

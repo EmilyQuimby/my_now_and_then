@@ -50,15 +50,15 @@
                 {% if not comments %}
                 No comments
                 {% endif %}
-                {% for comment in comment %}
+                {% for x in comment %}
                 <div class="comments" style="padding: 10px;">
                     <p class="font-weight-bold">
                         <h4>Comment by</h4> {{ comment.user }}
                         <span class=" text-muted font-weight-normal">
-                            {{ comment.created_on }}
+                            {{ x.created_on }}
                         </span>
                     </p>
-                    {{ comment.body | linebreaks }}
+                    {{ x.body | linebreaks }}
                 </div>
                 {% endfor %}
             </div>
@@ -66,12 +66,8 @@
                 {% if new_comment %}
                 <h2>Your comment has been posted.</h2>
                 {% else %}
-                <h3>Leave a comment</h3>
-                <form action="{% url 'nowandthen:add_comment' image.id %}" method="POST">
-                    {{ comment_form.as_p }}
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
-                </form>
+                <h3>Leave a comment - Coming soon!</h3>
+
                 {% endif %}
             </div>
     </div>
