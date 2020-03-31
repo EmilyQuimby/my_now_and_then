@@ -1,6 +1,6 @@
 import os
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'nowandthen.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mynowandthen.settings')
 
 import django
 
@@ -12,12 +12,12 @@ def populate():
     maryhill_comments = [
         {'body': 'wowo I love this photo - reminds me of when I used to live there!'},
         {'body': 'I love Maryhill - its such a pretty part of Glasgow lol'},
-        {'body': 'gonnae no dae that lol'}]
+        {'body': 'gonnae no dae that lol', 'user_id': 3}]
 
     fireworks_comments = [
         {'body': 'amazing fireworks - thanks for sharing :)'},
         {'body': 'love fireworks, love this, love YOU!'},
-        {'body': ''}]
+        {'body': 'whoop!'}]
 
     cityscape_comments = [
         {'body': 'more pics like this one please!!'},
