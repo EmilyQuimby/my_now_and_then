@@ -66,8 +66,11 @@
                 {% if new_comment %}
                 <h2>Your comment has been posted.</h2>
                 {% else %}
-                <h3>Leave a comment - Coming soon!</h3>
-
+                <h3>Leave a comment</h3>
+                <form action="{% url 'nowandthen:add_comment' image.id %}" method="POST">
+                    {{ comment_form.as_p }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
                 {% endif %}
             </div>
     </div>
