@@ -53,7 +53,7 @@
                 {% for x in comment %}
                 <div class="comments" style="padding: 10px;">
                     <p class="font-weight-bold">
-                        <h4>Comment by</h4> {{ comment.user }}
+                        <h4>Comment by</h4> {{ x.user }}
                         <span class=" text-muted font-weight-normal">
                             {{ x.created_on }}
                         </span>
