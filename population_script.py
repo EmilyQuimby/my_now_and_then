@@ -83,7 +83,7 @@ def populate():
                         pic_data['tag_two'],
                         pic_data['era'])
         for c in pic_data['comments']:
-            add_comment(p, c['user'], c['body'])
+            add_comment(c[0], c[1])
 
     for p in Picture.objects.all():
         for c in Comment.objects.filter(picture=p):
