@@ -1,12 +1,10 @@
 import os
-
-from django.contrib.auth.models import User
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mynowandthen.settings')
-
 import django
 
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mynowandthen.settings')
 django.setup()
+
+from django.contrib.auth.models import User
 from nowandthen.models import Picture, Comment, UserProfile
 
 
@@ -28,12 +26,12 @@ def populate():
     ]
 
     maryhill_comments = [
-        {'user': banana_user,
-         'body': 'wowo I love this photo - reminds me of when I used to live there!'},
-        {'user': johann_user,
-         'body': 'I love Maryhill - its such a pretty part of Glasgow lol'},
-        {'user': wmffre_user,
-         'body': 'gonnae no dae that lol', 'user_id': 3}],
+                            {'user': banana_user,
+                             'body': 'wowo I love this photo - reminds me of when I used to live there!'},
+                            {'user': johann_user,
+                             'body': 'I love Maryhill - its such a pretty part of Glasgow lol'},
+                            {'user': wmffre_user,
+                             'body': 'gonnae no dae that lol', 'user_id': 3}],
 
     fireworks_comments = [
         {'user': banana_user,
@@ -83,8 +81,7 @@ def populate():
                         pic_data['description'],
                         pic_data['tag_one'],
                         pic_data['tag_two'],
-                        pic_data['era'],
-                        pic_data['likes'])
+                        pic_data['era'])
         for c in pic_data['comments']:
             add_comment(p, c['user'], c['body'])
 
