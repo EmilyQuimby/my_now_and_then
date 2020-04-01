@@ -4,7 +4,7 @@
 <br>
 {% if pictures %}
     <ul>
-    {% for p in pictures %}
+    {% for p in Picture.objects.all %}
 <div class="container">
   <div class="row">
     <div class="col-md-8 card mb-4  mt-3 ">
@@ -47,10 +47,10 @@
             <div class="card-body">
         <!-- comments -->
                 <h2>comments</h2>
-                {% if not comments %}
+                {% if not p.comments %}
                 No comments
                 {% endif %}
-                {% for x in comment %}
+                {% for x in p.comment %}
                 <div class="comments" style="padding: 10px;">
                     <p class="font-weight-bold">
                         <h4>Comment by</h4> {{ x.user }}
@@ -67,7 +67,7 @@
                 <h2>Your comment has been posted.</h2>
                 {% else %}
                 <h3>Leave a comment</h3>
-                <form action="{% url 'nowandthen:add_comment'%}" method="POST">
+                <form action="{% url 'nowandthen:add_comment' p.image_id %}" method="POST">
                     {{ comment_form.as_p }}
                     {% csrf_token %}
                     <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
