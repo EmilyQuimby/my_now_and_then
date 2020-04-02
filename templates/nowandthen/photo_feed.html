@@ -47,13 +47,13 @@
             <div class="card-body">
         <!-- comments -->
                 <h2>comments</h2>
-                {% if not p.comments %}
+                {% if not comments %}
                 No comments
                 {% endif %}
-                {% for x in p.comment %}
+                {% for x in comment %}
                 <div class="comments" style="padding: 10px;">
                     <p class="font-weight-bold">
-                        <h4>Comment by</h4> {{ x.user }}
+                        <h4>Comment by</h4> {{ comment.user }}
                         <span class=" text-muted font-weight-normal">
                             {{ x.created_on }}
                         </span>
@@ -66,11 +66,8 @@
                 {% if new_comment %}
                 <h2>Your comment has been posted.</h2>
                 {% else %}
-                <h3>Leave a comment</h3>
-                <form action="{% url 'nowandthen:add_comment' p.image_id %}" method="POST">
-                    {{ comment_form.as_p }}
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
+                <h3>Leave a comment - Coming soon!</h3>
+
                 {% endif %}
             </div>
     </div>
