@@ -1,3 +1,4 @@
+<! –– For the registration page ––>
 {% extends 'nowandthen/base.html' %}
 {% load staticfiles %}
 {% block title_block %}
@@ -13,7 +14,7 @@ Register
 enctype="multipart/form-data">
 {% csrf_token %}
 <!-- Display each form -->
-User Authentication 160
+User Authentication
 {{ user_form.as_p }}
 {{ profile_form.as_p }}
 <!-- Provide a button to click to submit the form. -->

@@ -15,6 +15,7 @@ ERA_CHOICES = [
     ('1960s and earlier', '1960s and earlier')
 ]
 
+#For the page for adding photos.
 
 class PictureForm(forms.ModelForm):
     title = forms.CharField(help_text="What is your picture's title?", widget=forms.TextInput(attrs={'size': '170'}),
@@ -41,7 +42,7 @@ class PictureForm(forms.ModelForm):
             help_text_html=' <span class="helptext">%s</span>',
             errors_on_separate_row=True)
 
-
+#For the comment functionality (not completed).
 class CommentForm(forms.ModelForm):
     body = forms.CharField(help_text="What is your comment?", widget=forms.TextInput(attrs={'size': '1000'}),
                            required=True)
@@ -50,7 +51,7 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ('body',)
 
-
+#Form below are for new user registration
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
 
