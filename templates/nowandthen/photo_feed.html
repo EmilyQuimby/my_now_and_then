@@ -1,3 +1,4 @@
+<! –– This page provides a photo gallery of images submitted by users, ordered by date submitted ––>
 {% extends 'nowandthen/base.html' %}
 {% block body_block %}
 <br>
@@ -46,31 +47,8 @@
             </div>
             <div class="card-body">
         <!-- comments -->
-                <h2>comments</h2>
-                {% if not comments %}
-                No comments
-                {% endif %}
-                {% for x in comment %}
-                <div class="comments" style="padding: 10px;">
-                    <p class="font-weight-bold">
-                        <h4>Comment by</h4> {{ comment.user }}
-                        <span class=" text-muted font-weight-normal">
-                            {{ x.created_on }}
-                        </span>
-                    </p>
-                    {{ x.body | linebreaks }}
-                </div>
-                {% endfor %}
-            </div>
-            <div class="card-body">
-                {% if new_comment %}
-                <h2>Your comment has been posted.</h2>
-                {% else %}
-                <h3>Leave a comment - Coming soon!</h3>
-
-                {% endif %}
-            </div>
-    </div>
+                <h2>Comments and likes coming soon! Watch this space!</h2>
+                <! –– Code for adding comments to go here ––>
   </div>
 </div>
 <!-- Card -->
