@@ -12,6 +12,9 @@
 
 
 #def populate():
+
+## creates user objects
+
 #    banana_user = [
 #        {'username': 'Banana',
 #        'email': 'Banana@cat.com',
@@ -28,6 +31,9 @@
 #         'password': 'Wmffre1234'},
 #    ]
 #
+
+## creates comment objects
+
 #    maryhill_comments = [
 #                            {'user': banana_user,
 #                             'body': 'wowo I love this photo - reminds me of when I used to live there!'},
@@ -51,6 +57,9 @@
 #         'body': 'what a sucky picture hahahaaaa'},
 #        {'user': wmffre_user,
 #         'body': 'great - love it!'}]
+
+## creates a list of picture objects
+
 #
 #    pics = {'Maryhill': {'comments': maryhill_comments,
 #                         'image': 'shared_pics/View-from-kitchen-window-of-Maryhill-tenements.1970.jpg',
@@ -77,6 +86,9 @@
 #                          'era': '1990s',
 #                          'likes': 16}}
 #
+
+## iterates through the pictures and adds comments to them
+
 #    for pic, pic_data in pics.items():
 #        p = add_picture(pic,
 #                        pic_data['image'],
@@ -86,7 +98,7 @@
 #                        pic_data['tag_two'],
 #                        pic_data['era'])
 #        for c in pic_data['comments']:
-#            add_comment(c[0], c[1])
+#            add_comment(c['user'], c['body'])
 #
 #    for p in Picture.objects.all():
 #        for c in Comment.objects.filter(picture=p):

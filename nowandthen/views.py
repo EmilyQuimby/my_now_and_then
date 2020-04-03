@@ -8,12 +8,14 @@ from pip._vendor.requests import post
 from nowandthen.forms import PictureForm, CommentForm, UserProfileForm, UserForm
 from nowandthen.models import Picture, Comment
 
-#For accessing the index page
+
+# For accessing the index page
 def index(request):
     context_dict = {}
     return render(request, 'nowandthen/index.html', context=context_dict)
 
-#For user registration
+
+# For user registration
 def register(request):
     # A boolean value for telling the template
     # whether the registration was successful.
@@ -44,7 +46,8 @@ def register(request):
                            'profile_form': profile_form,
                            'registered': registered})
 
-#For user logins
+
+# For user logins
 def user_login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -64,7 +67,8 @@ def user_login(request):
     else:
         return render(request, 'nowandthen/login.html')
 
-#For adding pictures. 
+
+# For adding pictures.
 @login_required
 def add_picture(request):
     form = PictureForm()
@@ -77,7 +81,8 @@ def add_picture(request):
             print(form.errors)
     return render(request, 'nowandthen/add_picture.html', {'form': form})
 
-#For use with the add_comments facility, which has not been completed.
+
+# For use with the add_comments facility, which has not been completed.
 
 @login_required
 def add_comment(request, image_id):
@@ -99,11 +104,12 @@ def add_comment(request, image_id):
     else:
         comment_form = CommentForm()
 
-    context = {'image': image,'comment': comment, 'new_comment': new_comment,'comment_form': comment_form}
+    context = {'image': image, 'comment': comment, 'new_comment': new_comment, 'comment_form': comment_form}
 
     return render(request, template_name, context)
 
-#For accessing the photo feed.
+
+# For accessing the photo feed.
 def photo_feed(request):
     picture_list = Picture.objects.all().order_by('when_added')
     comment_form = CommentForm()
@@ -113,7 +119,9 @@ def photo_feed(request):
     context_dict['comment_form'] = comment_form
 
     return render(request, 'nowandthen/photo_feed.html', context=context_dict)
-#For accessing the 1970s photo feed (functionality not completed)
+
+
+# For accessing the 1970s photo feed (functionality not completed)
 def photo70(request):
     picture_list_70 = Picture.objects.filter(era=1970)
 
@@ -122,7 +130,8 @@ def photo70(request):
 
     return render(request, 'nowandthen/1970.html', context=context_dict)
 
-#For accessing the 1980s photo feed (functionality not completed)
+
+# For accessing the 1980s photo feed (functionality not completed)
 def photo80(request):
     picture_list_80 = Picture.objects.filter(era=1980)
 
@@ -131,7 +140,8 @@ def photo80(request):
 
     return render(request, 'nowandthen/1980.html', context=context_dict)
 
-#For accessing the 2010s photo feed (functionality not completed)
+
+# For accessing the 2010s photo feed (functionality not completed)
 def photo10(request):
     picture_list_10 = Picture.objects.filter(era=2010)
 
@@ -140,7 +150,8 @@ def photo10(request):
 
     return render(request, 'nowandthen/2010.html', context=context_dict)
 
-#For search results (functionality not completed)
+
+# For search results (functionality not completed)
 def search_results(request):
     return render(request, 'nowandthen/search_results.html')
 

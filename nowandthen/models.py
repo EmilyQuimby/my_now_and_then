@@ -24,7 +24,8 @@ class Picture(models.Model):
     def __str__(self):
         return self.title
 
-#user profile model
+
+# user profile model
 
 class UserProfile(models.Model):
     # This line is required. Links UserProfile to a User model instance.
@@ -36,7 +37,7 @@ class UserProfile(models.Model):
         return self.user.username
 
 
-#Comment model. The comment functionality has not been completed. 
+# Comment model. The comment functionality has not been completed.
 class Comment(models.Model):
     COMMENT_MAX_LENGTH = 1000
     image = models.ForeignKey(Picture, on_delete=models.CASCADE, related_name="comments")
@@ -50,5 +51,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return 'Comment {} by {}'.format(self.body, self.user)
-
-
